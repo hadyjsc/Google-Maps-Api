@@ -17,6 +17,7 @@ background: #D32F2F;
 ::-webkit-scrollbar-thumb {
 background: #448AFF;
 -webkit-border-radius:0px;
+height:30px;
 }
 
 body {
