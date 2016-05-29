@@ -9,7 +9,15 @@
 /* ==== Google font ==== */
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,700,800|Roboto:400,500,700,900');
 /* --- pe-icon-7-stroke --- */
-
+::-webkit-scrollbar {
+width: 10px;
+background: #D32F2F;
+-webkit-border-radius:0px;
+}
+::-webkit-scrollbar-thumb {
+background: #448AFF;
+-webkit-border-radius:0px;
+}
 
 body {
     width: 100%;
