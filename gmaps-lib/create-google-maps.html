@@ -6,13 +6,16 @@
     <meta name="Demo tutoral by www.java-sc.web.id" content="">
     <meta name="Hady Eka Saputra" content="">
     <title>JSC - Demo Google Maps API</title>
-    <link href='http://www.java-sc.web.id/favicon.ico' rel='icon' type='image/x-icon'/>
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href='http://www.java-sc.web.id/favicon.ico' rel='icon' type='image/x-icon'/>
     <script src="https://use.fontawesome.com/2642b88c56.js"></script>
     <link href="../css/style.css" rel="stylesheet">
 	<link id="t-colors" href="../css/blue.css" rel="stylesheet">
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc">
-    </script>
+	<style type="text/css">
+	#map {
+		height: 500px;
+	}
+	</style>
         <script type="text/javascript">
 		var map;
 		function initMap() {
@@ -22,8 +25,10 @@
 		  });
 		}
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc&callback=initMap">
+    </script>
 	</head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom" onload="initMap()">
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
 <div id="wrapper">
 	
@@ -32,7 +37,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-md-6">
-					<p class="bold text-left"><i class="fa fa-arrow-circle-left"></i> <a href="http://www.java-sc.web.id/2016/01/pendahuluan-1-membuat-maps-dengan-google-maps.html"> Kembali Ke Tutorial </a></p>
+					<a href="http://www.java-sc.web.id/2016/01/pendahuluan-1-membuat-maps-dengan-google-maps.html"> <p class="bold text-left"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Tutorial </p></a>
 					</div>
 					<div class="col-sm-6 col-md-6">
 					<!-- <p class="bold text-right">Ketutorial Sebelumya <i class="fa fa-arrow-circle-right"></i></p> -->
@@ -51,15 +56,11 @@
 						<div class="form-wrapper">
 						<div class="wow fadeInRight">
 						
-							<div class="panel panel-skin">
+							<div class="panel panel-skin" style="max-height: 100;">
 							<div class="panel-heading">
 									<center><h3 class="panel-title"><span class="fa fa-pencil-square-o"></span>Membuat Maps Dengan Java Script Google Maps API</h3></center>
-									</div>
-									<div class="panel-body">
-									<div>
-										<div id="map" style="height:100%"></div>
-									</div>
-								</div>
+							</div>
+									<div class="panel-body" id="map"></div>
 							</div>				
 						
 						</div>
