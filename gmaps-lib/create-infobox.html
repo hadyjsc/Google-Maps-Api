@@ -9,7 +9,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href='http://www.java-sc.web.id/favicon.ico' rel='icon' type='image/x-icon'/>
     <script src="https://use.fontawesome.com/2642b88c56.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc&callback=initMap">
     </script>
     <script src="infobox.js"></script>
     <link href="../css/style.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 	}
 	</style>
   <script type="text/javascript">
-	function initialize() {
+	function initMap() {
     var posisi = new google.maps.LatLng(0.512574, 101.448355);
 
     var myMapOptions = {
@@ -72,7 +72,7 @@
 
     </script>
 	</head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom" onload="initialize()">
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
 <div id="wrapper">
 	
