@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Demo tutoral by www.java-sc.web.id" content="">
+    <meta name="Hady Eka Saputra" content="">
+    <title>JSC - Demo Google Maps API</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href='http://www.java-sc.web.id/favicon.ico' rel='icon' type='image/x-icon'/>
+    <script src="https://use.fontawesome.com/2642b88c56.js"></script>
+    <script src="../js/infobox.js"></script>
+    <link href="../css/style.css" rel="stylesheet">
+	<link id="t-colors" href="../css/blue.css" rel="stylesheet">
+	<style type="text/css">
+	#map {
+		height: 500px;
+	}
+	</style>
+  <script type="text/javascript">
+	function initialize() {
+    var posisi = new google.maps.LatLng(0.512574, 101.448355);
+
+    var myMapOptions = {
+       zoom: 15
+      ,center: posisi
+      ,mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var theMap = new google.maps.Map(document.getElementById("canvas"), myMapOptions);
+
+
+    var marker = new google.maps.Marker({
+      map: theMap,
+      draggable: true,
+      position: posisi,
+      visible: true
+    });
+
+    var boxText = document.createElement("div");
+    boxText.style.cssText = "padding: 5px;color:#fff";
+    boxText.innerHTML = "<div ><div style='text-align:center;padding:7px'><h4><i class='fa fa-home'></i> Rumah Java Service and Consult</h4></div></div><div ><div><div style='width:130px;float:left'><center><img src='1.jpg' width='100px' height='100px'></center></div><div style='width:250px;float:right'><p style='margin-left:0px;'>Ini adalah isi kontennya yang jelas seterah saja mau isi konten seperti apa<br>Jalan mana saja : <h3><a href='www.java-sc.web.id'>@Java-Sc</a></h3> </p></div></div></div></div>";
+
+    var myOptions = {
+       content: boxText
+      ,disableAutoPan: false
+      ,maxWidth: 0
+      ,pixelOffset: new google.maps.Size(-60, -260)
+      ,zIndex: null
+      ,boxStyle: { 
+        background: "url('infobox.png') no-repeat"
+        ,width: "400px"
+        ,height:"220px"
+       }
+      ,closeBoxMargin: "-5px -3px 0px 0px"
+      ,closeBoxURL: "https://cdn2.iconfinder.com/data/icons/officeicons/PNG/24/Close.png"
+      ,infoBoxClearance: new google.maps.Size(1, 1)
+      ,isHidden: false
+      ,pane: "floatPane"
+      ,enableEventPropagation: false
+    };
+
+    google.maps.event.addListener(marker, "click", function (e) {
+      ib.open(theMap, this);
+    });
+
+    var ib = new InfoBox(myOptions);
+
+    ib.open(theMap, marker);
+  }
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc">
+    </script>
+	</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom" onload="initialize()">
+
+<div id="wrapper">
+	
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="top-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/05/membuat-infowindow-dengan-infobox-di-google-maps.html"> <p class="bold text-left"><i class="fa fa-arrow-circle-left"></i> Membuat InfoWindow Dengan InfoBox Di Google Maps</p></a>
+					</div>
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/05/menghapus-background-putih-info-window-pada-google-maps.html"><p class="bold text-right">Menghapus Background Putih Pada Info Window Google Maps <i class="fa fa-arrow-circle-right"></i></p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <!-- /.container -->
+    </nav>
+	<!-- Section: intro -->
+    <section id="intro" class="intro">
+		<div class="intro-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="form-wrapper">
+						<div class="wow fadeInRight">
+						
+							<div class="panel panel-skin" style="max-height: 100;">
+							<div class="panel-heading">
+									<center><h3 class="panel-title"><span class="fa fa-pencil-square-o"></span>Membuat InfoWindow Dengan InfoBox Di Google Maps</h3></center>
+							</div>
+									<div class="panel-body" id="map"></div>
+							</div>				
+						
+						</div>
+						</div>
+					</div>					
+				</div>		
+			</div>
+		</div>		
+    </section>
+	<footer>
+		<div class="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="text-center">
+					<p>Copyright 2016 - JSC-Developer</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+		</div>
+	</footer>
+
+</div>
+    <script src="../js/jquery.min.js"></script>	 
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
