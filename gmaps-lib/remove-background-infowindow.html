@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Demo tutoral by www.java-sc.web.id" content="">
+    <meta name="Hady Eka Saputra" content="">
+    <title>JSC - Demo Google Maps API</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href='http://www.java-sc.web.id/favicon.ico' rel='icon' type='image/x-icon'/>
+    <script src="https://use.fontawesome.com/2642b88c56.js"></script>
+    <link href="../css/style.css" rel="stylesheet">
+	<link id="t-colors" href="../css/blue.css" rel="stylesheet">
+	<style type="text/css">
+	#map {
+		height: 500px;
+	}
+	     .scroll {line-height:1.35;overflow:hidden;white-space:nowrap;}
+      .header {width: 100%;background-color: #1e88e5;font-size:16px;padding: 5px;text-align: center;color: #fff;font-weight: bold;box-shadow: 2px 2px 6px 0 #1565c0;margin-bottom: 2px}
+      .content {background-color: #eee;padding: 5px;}
+      .footer {background-color: #1e88e5;text-align: center;color: #fff}
+      .footer a {color: #fabb3d;font-weight: bold;text-decoration: none;}
+      .gm-style-iw {
+          width: 368px !important;
+          top: 15 !important;
+          left: 10 !important;
+         box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+         border: 1px solid rgba(72, 181, 233, 0.6);
+         border-radius: 2px 2px 0 0;
+      }
+	</style>
+  <script type="text/javascript">
+	var map ;
+    var penanda ;
+    var posisi = {lat:0.512574, lng:  101.448355};
+    var gambar = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/48/map-marker-icon.png";
+    var isiInfo = "<div class='scroll'>"+
+            "<div class='header'>G-Maps Tust by JSC</div>"+
+            "<div class='content'>I make hello world in my code and now i see my world in my life <p> lorem ipsum coba liat info window di mana saja</p></div>"+
+    				"<div class='footer'>Jangan lupa kunjungi <a href='http://www.java-sc.blogspot.com'>Java Source Code</a> Create by Bang Hes</div></div>";
+	function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: posisi
+        });
+        var marker = new google.maps.Marker({
+          position:posisi,
+          map: map,
+          draggable: true,
+          title: 'Java Source Code',
+          icon: gambar,
+	    });
+	    var infoWindow = new google.maps.InfoWindow({
+	    	content: isiInfo,
+        maxWidth:400,
+        maxHeight:150,
+	    });
+	    marker.addListener('click',function() {
+	    	infoWindow.open(map,marker);
+        var iwOuter = $('.gm-style-iw');
+        var iwBackground = iwOuter.prev();
+        iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+        iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+        iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 201px !important;'});
+        iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 2px 6px', 'z-index' : '1'});
+
+        var iwCloseBtn = iwOuter.next();
+        iwCloseBtn.css({opacity: '1', right: '30px', top: '3px', border: '7px solid #48b5e9', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
+        if($('.iw-content').height() < 140){
+          $('.iw-bottom-gradient').css({display: 'none'});
+        }
+        iwCloseBtn.mouseout(function(){
+          $(this).css({opacity: '1'});
+        });
+	    });
+	}	
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc&callback=initMap">
+    </script>
+	</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+<div id="wrapper">
+	
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="top-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/05/menghapus-background-putih-info-window-pada-google-maps.html"> <p class="bold text-left"><i class="fa fa-arrow-circle-left"></i> Menghapus Background Putih Info Window Pada Google Maps</p></a>
+					</div>
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/02/merubah-style-konten-info-window-pada-google-maps.html"><p class="bold text-right">Merubah Style Info Window Pada Google Maps <i class="fa fa-arrow-circle-right"></i></p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <!-- /.container -->
+    </nav>
+	<!-- Section: intro -->
+    <section id="intro" class="intro">
+		<div class="intro-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="form-wrapper">
+						<div class="wow fadeInRight">
+						
+							<div class="panel panel-skin" style="max-height: 100;">
+							<div class="panel-heading">
+									<center><h3 class="panel-title"><span class="fa fa-pencil-square-o"></span>Menghapus Background Putih Info Window Pada Google Maps</h3></center>
+							</div>
+									<div class="panel-body" id="map"></div>
+							</div>				
+						
+						</div>
+						</div>
+					</div>					
+				</div>		
+			</div>
+		</div>		
+    </section>
+	<footer>
+		<div class="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="text-center">
+					<p>Copyright 2016 - JSC-Developer</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+		</div>
+	</footer>
+
+</div>
+    <script src="../js/jquery.min.js"></script>	 
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
