@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Demo tutoral by www.java-sc.web.id" content="">
+    <meta name="Hady Eka Saputra" content="">
+    <title>JSC - Demo Google Maps API</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href='http://www.java-sc.web.id/favicon.ico' rel='icon' type='image/x-icon'/>
+    <script src="https://use.fontawesome.com/2642b88c56.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKN8E3VeLkA5mgeENXiKp9tjhPlQ95TPc&callback=initMap">
+    </script>
+    <script src="infobox.js"></script>
+    <link href="../css/style.css" rel="stylesheet">
+	<link id="t-colors" href="../css/blue.css" rel="stylesheet">
+	<style type="text/css">
+	#map1 {
+		height: 500px;
+	}
+	</style>
+  <script type="text/javascript">
+		function initMap() {
+      var map1,map2;
+      var styleGMaps = [
+  {
+    "featureType": "road.local",
+    "elementType": "geometry",
+    "stylers": [
+      { "visibility": "on" },
+      { "invert_lightness": true },
+      { "gamma": 1.96 },
+      { "lightness": -65 },
+      { "saturation": 53 },
+      { "hue": "#00e5ff" },
+      { "weight": 0.2 },
+      { "color": "#dd6630" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "invert_lightness": true },
+      { "lightness": 33 },
+      { "gamma": 0.84 },
+      { "hue": "#0008ff" },
+      { "visibility": "on" },
+      { "saturation": 38 },
+      { "weight": 2.2 },
+      { "color": "#4f90f4" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "visibility": "on" },
+      { "invert_lightness": true },
+      { "color": "#ffb147" },
+      { "saturation": 23 },
+      { "hue": "#ff9100" },
+      { "lightness": -30 },
+      { "gamma": 4.09 },
+      { "weight": 2.1 }
+    ]
+  },{
+    "featureType": "landscape.natural",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "visibility": "on" },
+      { "lightness": -14 },
+      { "color": "#5cae8e" },
+      { "weight": 0.4 },
+      { "saturation": 34 },
+      { "gamma": 1.42 }
+    ]
+  }
+];
+      var styled = new google.maps.StyledMapType(styleGMaps,
+        {name: "Styled Map"});
+
+      var mapOptions = {
+          center: {lat: 0.5163256, lng: 101.4437629},
+          zoom:12,
+          mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+          }
+        };
+
+      var mapAwal = {
+          center: {lat: 0.5163256, lng: 101.4437629},
+          zoom: 12 ,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map1 = new google.maps.Map(document.getElementById('map1'),mapOptions);
+      map1.mapTypes.set('map_style', styled);
+      map1.setMapTypeId('map_style');
+      // map2 = new google.maps.Map(document.getElementById('map2'),mapAwal);
+		}
+    </script>
+	</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+<div id="wrapper">
+	
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="top-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/07/merubah-style-maps-pada-google-maps.html"> <p class="bold text-left"><i class="fa fa-arrow-circle-left"></i> Merubah Gaya Google Map</p></a>
+					</div>
+					<div class="col-sm-6 col-md-6">
+					<a href="http://www.java-sc.web.id/2016/05/membuat-infowindow-dengan-infobox-di-google-maps.html"><p class="bold text-right">Membuat InfoWindow Dengan InfoBox Di Google Maps <i class="fa fa-arrow-circle-right"></i></p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <!-- /.container -->
+    </nav>
+	<!-- Section: intro -->
+    <section id="intro" class="intro">
+		<div class="intro-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="form-wrapper">
+						<div class="wow fadeInRight">
+						
+							<div class="panel panel-skin" style="max-height: 100;">
+							<div class="panel-heading">
+									<center><h3 class="panel-title"><span class="fa fa-pencil-square-o"></span>Merubah Style Maps Pada Google Maps</h3></center>
+							</div>
+									<div class="panel-body" id="map1"></div>
+							</div>				
+						
+						</div>
+						</div>
+					</div>					
+				</div>		
+			</div>
+		</div>		
+    </section>
+	<footer>
+		<div class="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="text-center">
+					<p>Copyright 2016 - JSC-Developer</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+		</div>
+	</footer>
+
+</div>
+    <script src="../js/jquery.min.js"></script>	 
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
